@@ -1,0 +1,6 @@
+#!/bin/bash
+for (( ;; ))
+do
+  ./serphilo
+  sleep 15
+done
