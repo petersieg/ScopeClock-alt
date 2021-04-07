@@ -14,5 +14,5 @@ serphilo: send philosophical saying at 19200 baud
 
 loopphilo: bash schript to repeadtedly send such msgs
 
-![serphilo](https://github.com/petersieg/ScopeClock-alt/blob/master/serphilo.jpeg)
+![serphilo](https://github.com/petersieg/ScopeClock-alt/blob/main/serphilo.jpeg)
 
