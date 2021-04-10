@@ -1,4 +1,6 @@
 #!/bin/bash
+stty 19200 -F /dev/ttyUSB0
+echo -ne 'xa2' > /dev/ttyUSB0
 for (( ;; ))
 do
   ./serphilo
