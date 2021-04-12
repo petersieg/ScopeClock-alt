@@ -4,7 +4,7 @@ Addons / Changes to:
 
 http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
-(The excellent work of: jdr@dutchtronix.com)
+(The excellent work of Jan de Rie: jdr@dutchtronix.com)
 
 ---
 
@@ -16,3 +16,4 @@ loopphilo: bash schript to repeadtedly send such msgs
 
 ![serphilo](https://github.com/petersieg/ScopeClock-alt/blob/main/serphilo.jpeg)
 
+VectorGen.zip: Source, Project and exe compiled under and for WinXP with Pelles-C 8
