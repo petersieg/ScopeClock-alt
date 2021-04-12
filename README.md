@@ -4,7 +4,7 @@ Addons / Changes to:
 
 http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
-(The excellent work of Jan de Rie: jdr@dutchtronix.com)
+(The excellent work of Copyright © 2010 Johannes P.M. de Rie: jdr@dutchtronix.com - see license.txt)
 
 ---
 
