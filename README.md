@@ -22,5 +22,5 @@ VectorGen.zip: Source, Project and exe compiled under and for WinXP with Pelles-
 
 VectorGen-Lin.zip: Source, Project and program compiled under and for Linux Mint 20.1 with gcc
 
-(Use: a,s,w,<space>,x)
+(Use: a,s,w,' ',x)
   
