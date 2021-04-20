@@ -8,6 +8,14 @@ http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
 ---
 
+Very small pcb changes (allow to solder BNC connector stands): Oclock2008-H31-PS.zip
+
+Has NOT been tested! You have been warned!
+
+![pcb_changes](https://github.com/petersieg/ScopeClock-alt/blob/main/pcb_changes.jpeg)
+
+---
+
 sertest: send msg and vector to display in TERM mode at 19200 baud (default).
 
 serphilo: send philosophical saying at 19200 baud
