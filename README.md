@@ -8,7 +8,7 @@ http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
 ---
 
-Very small pcb changes (allow to solder BNC connector stands): Oclock2008-H31-PS.zip
+Very small pcb changes (allow to solder BNC connector stands at 1,2,3,4): Oclock2008-H31-PS.zip
 
 Has NOT been tested! You have been warned!
 
