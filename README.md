@@ -10,7 +10,7 @@ http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
 Very small pcb changes (allow to solder BNC connector stands at 1,2,3,4): Oclock2008-H31-PS.zip
 
-Has NOT been tested! You have been warned!
+Has been verified working on 2021-04-27.
 
 ![pcb_changes](https://github.com/petersieg/ScopeClock-alt/blob/main/pcb_changes.jpeg)
 
