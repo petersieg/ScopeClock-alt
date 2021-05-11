@@ -1,5 +1,5 @@
 #!/bin/bash
-stty 19200 -F /dev/ttyUSB0
+stty 115200 -F /dev/ttyUSB0
 echo -ne 'xa2' > /dev/ttyUSB0
 for (( ;; ))
 do
