@@ -100,7 +100,7 @@ int main() {
 "Glueck bedeutet     nicht das zu kriegenwas wir wollen      sondern das zu      wollen was wir      kriegen.         \r\r",
 "Phantasie ist       wichtiger als Wissendenn Wissen ist     begrenzt.                                                \r\r",
 "Gib jedem Tag die   Chance der schoenstedeines Lebens zu    werden.                                                  \r\r",
-"Nicht der ist ein   Verlierer der       hinfaellt sondern derder liegenbleibt.                                       \r\r",
+"Nicht der ist ein   Verlierer der       hinfaellt sondern   der der liegenbleibt                                     \r\r",
 "Man kann dir den Wegweisen gehen musst  du ihn selbst.                                                               \r\r",
 "Eine schmerzliche   Wahrheit ist besser als eine Luege.                                                              \r\r",
 "Selbst eine Reise   von tausend Meilen  beginnt mit dem     ersten Schritt.                                          \r\r",
