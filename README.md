@@ -18,7 +18,7 @@ Has been verified working on 2021-04-27.
 
 sertest: send msg and vector to display in TERM mode at 19200 baud (default).
 
-serphilo: send philosophical saying at 19200 baud
+serphilo: send philosophical saying at 115200 baud
 
 loopphilo: bash schript to repeadtedly send such msgs
 
