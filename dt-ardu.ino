@@ -228,7 +228,68 @@ void reverse() {
 }
 
 void mastermind() {
-  Serial.println("2: Mastermind");
+   char ch[10],my[10];
+   int done;
+   int i,j,count,offcnt;
+   int z1,z2,z3,z4; /* 4 digits for my 4-digit char array */
+   
+   for (;;) { 
+
+   count = 1; offcnt = 0; done = 0;
+   /* create random 4-digit string in char array my */
+   /* strcpy(my,"1234"); */
+
+   z1 = (rand() % 9) + 1; /* 1..9 */
+   do { z2 = (rand() % 9) + 1; } while (z2==z1);
+   do { z3 = (rand() % 9) + 1; } while ((z3==z1) || (z3==z2));
+   do { z4 = (rand() % 9) + 1; } while ((z4==z1) || (z4==z2) || (z4==z3));
+   my[0] = z1+48; /* int 1..9 + ascii(48)='0' => '1'..'9' */
+   my[1] = z2+48;
+   my[2] = z3+48;
+   my[3] = z4+48;
+   my[4] = 0;     /* terminate string */
+
+   cls();
+   sprintf(buffer,"Guess my 4-digit    number...(%s);    0000 to abort.","****");
+   Serial.println(buffer);
+   delay(3000);
+   /* insert my to see code */
+   do {
+     sprintf(buffer,"# %02d: ",count+offcnt*10);
+     Serial.print(buffer);
+     for (i=0; i<4; i++) {
+       while (!keyboard.available()); // wait for ps2 kbd key
+       ch[i] = keyboard.read();
+     }
+     ch[4] = 0;
+     Serial.print(ch);
+     Serial.print("-");
+     if (strcmp("0000",ch)==0) done = 2; /* give up */
+     if (strcmp(my,ch)==0) done = 1; /* success; code broken */
+     /* check how near guess it and print hint */
+     /* for right digit at  right position print # */
+     /* for right digit but wrong position print + */
+     if (done==0) {
+       for (i=0;i<4;i++) {
+         if (ch[i]==my[i]) Serial.print("#");
+         else for (j=0;j<4;j++) if (ch[i]==my[j]) Serial.print("+");
+       }
+     }
+     Serial.println();
+     count++;
+     if (count==11) {
+       count = 1;
+       offcnt++;
+     }
+   } while (done==0);
+   if (done==1)
+     sprintf(buffer,"\nYou broke the code!");
+   else
+     sprintf(buffer,"\nYou gave up..      ");
+   Serial.print(buffer);
+   delay(10000);
+   }
+
 }
 
 void menue() {
