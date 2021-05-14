@@ -1,5 +1,7 @@
-/*  PS2Keyboard library example
+/*driver app for dutchtronix scopeclock term app
+  (C) 2021 peter.sieg2@gmx.de  CC-BY-NC-SA 4.0
   
+  This is for ps2keyboard lib:
   PS2Keyboard now requries both pins specified for begin()
   keyboard.begin(data_pin, irq_pin);
   
@@ -22,6 +24,17 @@
   
   Modified by Cuninganreset@gmail.com on 2010-03-22
   Modified by Paul Stoffregen <paul@pjrc.com> June 2010
+  -End of ps2keyboard lib section-
+
+  ps2 kbd pinout print female from solderside:
+
+  +----+        1=data-> Pin D4
+  | o o| 6 4    2=nc
+  |   o|   2    3=GND
+  |   o|   1    4=+5V
+  | o o| 5 3    5=clk => Pin D3
+  +----+        6=nc
+
 */
    
 #include <avr/pgmspace.h>
