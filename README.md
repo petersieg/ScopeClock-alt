@@ -47,7 +47,7 @@ reverse: reverse the numbers to yield 1 2 3 4 5 6 7 8 9
 
 mmind: mastermind. Guess 4 digit number. No doubles. # = right digit & right place. + = right digit but wrong place
 
-![serphilo](https://github.com/petersieg/ScopeClock-alt/blob/main/mmind.jpeg)
+![mmind](https://github.com/petersieg/ScopeClock-alt/blob/main/mmind.jpeg)
 
 ---
 
