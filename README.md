@@ -24,8 +24,11 @@ Hardware: dutchtronix pcb plus arduino uno with ps2 female connector for kbd:
 
 Main menue:
 
-![dt-ardu-menue](https://github.com/petersieg/ScopeClock-alt/blob/main/dt-ardu-menue.jpeg)
+![dt-ardu-menue](https://github.com/petersieg/ScopeClock-alt/blob/main/menue.jpeg)
 
+Connect 4:
+
+![c4](https://github.com/petersieg/ScopeClock-alt/blob/main/c4.jpeg)
 
 ---
 
