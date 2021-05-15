@@ -67,7 +67,7 @@ const char msg_14[] PROGMEM ="Die modernste Form  menschlicher Armut  ist das Ke
 const char msg_15[] PROGMEM ="ZEIT ist keine      Schnellstrasse zw.  Wiege und Grab      sondern Platz zum   Parken in der SONNE.                 \r\r";
 const char msg_16[] PROGMEM ="Der Zufall ist der  gebraeuchlichste    Deckname von Gottes Plan.                                                    \r\r";
 const char msg_17[] PROGMEM ="Es ist moralisch    notwendig das DaseinGottes anzunehmen.                                                           \r\r";
-const char msg_18[] PROGMEM ="Auge um Auge bedeutet nur dass die Welt erblindet.                                                                   \r\r";
+const char msg_18[] PROGMEM ="Auge um Auge        bedeutet nur dass   die Welt erblindet.                                                          \r\r";
 const char msg_19[] PROGMEM ="Der Mensch ist      nichts anderes als  wozu er sich macht.                                                          \r\r";
 const char msg_20[] PROGMEM ="Die Schoenheit der  Dinge lebt in der   Seele dessen der siebetrachtet.                                              \r\r";
 const char msg_21[] PROGMEM ="Du kannst dem Leben nicht mehr Tage     geben aber dem Tag  mehr Leben.                                              \r\r";
@@ -292,12 +292,140 @@ void mastermind() {
 
 }
 
+#define BOARD_ROWS 6
+#define BOARD_COLS 7
+
+void printBoard(char *board){
+   int row, col;
+
+   cls();
+   //puts("*Connect Four*\n");
+   for(row = 0; row < BOARD_ROWS; row++){
+      for(col = 0; col < BOARD_COLS; col++){
+         sprintf(buffer,"|%c",  board[BOARD_COLS * row + col]);
+         Serial.print(buffer);
+      }
+      Serial.println("|");
+      //puts("---------------");
+   }
+   Serial.println(" 1 2 3 4 5 6 7\n");
+}
+
+int takeTurn(char *board, int player, const char *PIECES){
+   int row, col = 0;
+   sprintf(buffer,"Player %d (%c):\nEnter Column:", player + 1, PIECES[player]);
+   Serial.print(buffer);
+   while(1){ 
+      while (!keyboard.available()); // wait for ps2 kbd key
+      col = keyboard.read() - '0';
+
+      if ((col >= 1) && (col <= 7 )) break;
+   }
+   col--;
+
+   for(row = BOARD_ROWS - 1; row >= 0; row--){
+      if(board[BOARD_COLS * row + col] == ' '){
+         board[BOARD_COLS * row + col] = PIECES[player];
+         return 1;
+      }
+   }
+   return 0;
+}
+
+int checkWin(char *board){
+    return (horizontalCheck(board) || verticalCheck(board) || diagonalCheck(board));
+
+}
+
+int checkFour(char *board, int a, int b, int c, int d){
+    return (board[a] == board[b] && board[b] == board[c] && board[c] == board[d] && board[a] != ' ');
+
+}
+
+int horizontalCheck(char *board){
+    int row, col, idx;
+    const int WIDTH = 1;
+
+    for(row = 0; row < BOARD_ROWS; row++){
+       for(col = 0; col < BOARD_COLS - 3; col++){
+          idx = BOARD_COLS * row + col;
+          if(checkFour(board, idx, idx + WIDTH, idx + WIDTH * 2, idx + WIDTH * 3)){
+             return 1;
+          }
+       }
+    }
+    return 0;
+}
+
+int verticalCheck(char *board){
+    int row, col, idx;
+    const int HEIGHT = 7;
+
+    for(row = 0; row < BOARD_ROWS - 3; row++){
+       for(col = 0; col < BOARD_COLS; col++){
+          idx = BOARD_COLS * row + col;
+          if(checkFour(board, idx, idx + HEIGHT, idx + HEIGHT * 2, idx + HEIGHT * 3)){
+              return 1;
+          }
+       }
+    }
+    return 0;
+}
+
+int diagonalCheck(char *board){
+   int row, col, idx, count = 0;
+   const int DIAG_RGT = 6, DIAG_LFT = 8;
+
+   for(row = 0; row < BOARD_ROWS - 3; row++){
+      for(col = 0; col < BOARD_COLS; col++){
+         idx = BOARD_COLS * row + col;
+         if(count <= 3 && checkFour(board, idx, idx + DIAG_LFT, idx + DIAG_LFT * 2, idx + DIAG_LFT * 3) || count >= 3 && checkFour(board, idx, idx + DIAG_RGT, idx + DIAG_RGT * 2, idx + DIAG_RGT * 3)){
+            return 1;
+         }
+         count++;
+      }
+      count = 0;
+   }
+   return 0;
+}
+
+void c4() {
+   const char *PIECES = "XO";
+   char board[BOARD_ROWS * BOARD_COLS];
+
+   for (;;) {
+   memset(board, ' ', BOARD_ROWS * BOARD_COLS);
+   int turn, done = 0;
+   
+   for(turn = 0; turn < BOARD_ROWS * BOARD_COLS && !done; turn++){
+      printBoard(board);   
+      while(!takeTurn(board, turn % 2, PIECES)){
+         printBoard(board);   
+         Serial.println("*Column full!*\n");
+      }
+      done = checkWin(board);
+   } 
+   printBoard(board);
+
+   if(turn == BOARD_ROWS * BOARD_COLS && !done){
+      Serial.println("It's a tie!");
+   } else {
+      turn--;
+      sprintf(buffer,"%d (%c) wins!", turn % 2 + 1, PIECES[turn % 2]);
+      Serial.println(buffer);
+   }
+   delay(10000);
+   }
+}
+
 void menue() {
   cls();
   Serial.println("Menue:");
   Serial.println("0: Philo");
   Serial.println("1: Reverse");
   Serial.println("2: Mastermind");
+  Serial.println("3: ");
+  Serial.println("4: Connect 4");
 }
 
 void loop() {
@@ -307,5 +435,6 @@ void loop() {
     if (app == '0') philo();
     if (app == '1') reverse();
     if (app == '2') mastermind();
+    if (app == '4') c4();
   }
 }
