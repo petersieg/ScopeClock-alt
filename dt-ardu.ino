@@ -52,7 +52,7 @@ char buffer[128];
 const char msg_0[]  PROGMEM ="Der der ich bin     gruesst traurig den der ich sein moechte                                                         \r\r";
 const char msg_1[]  PROGMEM ="Der Idealismus      waechst mit der     Entfernung vom      Problem.                                                 \r\r";
 const char msg_2[]  PROGMEM ="Fernsehen unterhaeltdie Leute indem es  verhindert dass sie sich unterhalten.                                        \r\r";
-const char msg_3[]  PROGMEM ="Ein Plan der sich   nicht aendern laesstist ein schlechter Plan.                                                     \r\r";
+const char msg_3[]  PROGMEM ="Ein Plan der sich   nicht aendern laesstist ein schlechter  Plan.                                                    \r\r";
 const char msg_4[]  PROGMEM ="Fehler die wir      einsehen koennen    nicht mehr ins Auge gehen.                                                   \r\r";
 const char msg_5[]  PROGMEM ="Der Vorteil der     Klugheit besteht    darin dass man sich dumm stellen kann.  Das Gegenteil ist   schwieriger.     \r\r";
 const char msg_6[]  PROGMEM ="Eine Familie ist einsteuerlich beguenstigter Kleinbetrieb   zur Herstellung     von Steuerzahlern.                   \r\r";
@@ -134,7 +134,7 @@ void philo() {
     unsigned int num = random(MAX);
     strcpy_P(buffer, (char*)pgm_read_word(&(msgs[num]))); // Casts und Dereferenzierung des Speichers
     Serial.println(buffer);
-    delay(10000);
+    delay(20000);
   }
 }
 
