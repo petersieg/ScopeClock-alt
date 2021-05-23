@@ -134,9 +134,11 @@ void philo() {
     unsigned int num = random(MAX);
     strcpy_P(buffer, (char*)pgm_read_word(&(msgs[num]))); // Casts und Dereferenzierung des Speichers
     Serial.println(buffer);
-    delay(20000);
+    delay(30000);
   }
 }
+
+//===========================================================================================================
 
 void shuffle_list(int *list, int len)
 {
@@ -227,6 +229,8 @@ void reverse() {
   }
 }
 
+//===========================================================================================================
+
 void mastermind() {
    char ch[10],my[10];
    int done;
@@ -291,6 +295,73 @@ void mastermind() {
    }
 
 }
+
+//===========================================================================================================
+
+// othello code:
+// https://pc3.5ch.net/test/read.cgi/tech/984182993/337
+// https://dev.to/iigura/reversiothello-game-program-which-you-can-choose-the-first-or-the-second-in-7-lines-code-of-c-3799
+
+int p,t,a,d,c,v,i,m[90],s,r[]={-10,-9,-8,-1,1,8,9,10}; // i
+char h[]=" - o x\n";
+
+void k()
+{
+    if(m[p]==0)
+        for(i=0;i<8;i++)
+        {
+            for(c=0,v=p+r[i];m[v]==3-t;v+=r[i])
+                c++;
+            if(c && m[v] == t)
+            {
+                a+=c;
+                v=p;
+                if(d)
+                    do 
+                        m[v]=t,v+=r[i];
+                    while(m[v]-t);
+            }
+        }
+}
+
+void myscanf() {
+  while (!keyboard.available()); // wait for ps2 kbd key
+  p = keyboard.read() - '0';
+  while (!keyboard.available()); // wait for ps2 kbd key
+  i = keyboard.read() - '0';
+}
+
+void othello()
+{
+   for (;;) { 
+    cls();
+    t=1; //human 'o' starts
+
+    for(i=1,m[41]=m[49]=2;i<10;m[i++*9]=3)
+        m[40]=m[50]=s=1;
+    for(;;a=d=0)
+    {
+        for(p=9;p<82;++p) {
+            k();
+            sprintf(buffer,"%.2s",h+m[p]*2);
+            Serial.print(buffer);
+        }
+        if(a)
+            for(d=a=s=p=8;a==8;k())
+                t-2?myscanf(),p+=i*9:++p;
+        else if(s) {
+            s=0;
+            Serial.print("pass");
+        }
+        else 
+            break;
+        t=3-t;
+    }
+   delay(10000);
+   }
+}
+
+//===========================================================================================================
 
 #define BOARD_ROWS 6
 #define BOARD_COLS 7
@@ -418,13 +489,15 @@ void c4() {
    }
 }
 
+//===========================================================================================================
+
 void menue() {
   cls();
   Serial.println("Menue:");
   Serial.println("0: Philo");
   Serial.println("1: Reverse");
   Serial.println("2: Mastermind");
-  Serial.println("3: ");
+  Serial.println("3: Othello");
   Serial.println("4: Connect 4");
 }
 
@@ -435,6 +508,7 @@ void loop() {
     if (app == '0') philo();
     if (app == '1') reverse();
     if (app == '2') mastermind();
+    if (app == '3') othello();
     if (app == '4') c4();
   }
 }
