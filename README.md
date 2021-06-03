@@ -18,6 +18,8 @@ Has been verified working on 2021-04-27.
 
 dt-ardu.ino: combines philo, reverse and mmind in one arduino sketch. Uses ps2 kbd for input and serial for output to dutchtronix.
 
+dt-ardu-ir.ino: combines philo, reverse and mmind in one arduino sketch. Uses ir receiver for input and serial for output to dutchtronix.
+
 Hardware: dutchtronix pcb plus arduino uno with ps2 female connector for kbd:
 
 ![dt-ardu-hw](https://github.com/petersieg/ScopeClock-alt/blob/main/dt-ardu-hw.jpeg)
