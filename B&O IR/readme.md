@@ -7,14 +7,14 @@ https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/main/IR_Sensor/
 
 99% based on Adafruit IR Raw lib and code. Respeckt theire code and license!
 
-/* Raw IR decoder sketch!
+# Raw IR decoder sketch!
  Code is public domain, check out www.ladyada.net and adafruit.com
  for more tutorials! 
-*/
-/* Raw IR commander
+
+# Raw IR commander
  MIT License, please attribute
  check out learn.adafruit.com  for more tutorials!  
-*/
+
 
  
  
