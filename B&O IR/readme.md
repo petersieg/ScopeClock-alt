@@ -1,4 +1,4 @@
-Some arduino files for Bang Olufsen Beo4 IR remote control
+# Some arduino files for Bang Olufsen Beo4 IR remote control
 
 https://learn.adafruit.com/ir-sensor/reading-ir-commands
 https://github.com/adafruit/Raw-IR-decoder-for-Arduino
