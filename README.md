@@ -20,6 +20,8 @@ dt-ardu.ino: combines philo, reverse and mmind in one arduino sketch. Uses ps2 k
 
 dt-ardu-ir.ino: combines philo, reverse and mmind in one arduino sketch. Uses ir receiver for input and serial for output to dutchtronix.
 
+Directory B&O IR: Soem files to utilize a Beo4 IR remote with this. Based on excellent adafruit IR Raw lib and code!
+
 Hardware: dutchtronix pcb plus arduino uno with ps2 female connector for kbd:
 
 ![dt-ardu-hw](https://github.com/petersieg/ScopeClock-alt/blob/main/dt-ardu-hw.jpeg)
