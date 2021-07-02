@@ -1,7 +1,7 @@
 /*driver app for dutchtronix scopeclock term app
   (C) 2021 peter.sieg2@gmx.de  CC-BY-NC-SA 4.0
   
-  Attention: Variable memory almost exhausted! Only app. 100 bytes are free!
+  Attention: Variable memory almost exhausted! Only app. 300 bytes are free!
   
   2021-06-25 - P. Sieg: used with TSOP7000 ir receiver to decode Beo4 B&O ir remote control
 */
@@ -336,10 +336,10 @@ void reverse() {
 
   for (;;) { 
     cls();
-    Serial.println("Reversal Game. Type 2-9 to flip the     first n numbers.");
+    Serial.println(F("Reversal Game. Type 2-9 to flip the     first n numbers."));
     delay(3000);
     cls();
-    Serial.println("Win by sorting the  numbers.");
+    Serial.println(F("Win by sorting the  numbers."));
     delay(3000);
     cls();
     int list[9] = {1,2,3,4,5,6,7,8,9};
@@ -349,7 +349,7 @@ void reverse() {
     {
         sprintf(buffer,"%d %d %d %d %d %d %d %d %d",list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8]);
         Serial.println(buffer);
-        Serial.println("Input 2-9:");
+        Serial.println(F("Input 2-9:"));
         input = irnum();
         if ((input > 1) && (input < 10)) {
           tries++;
@@ -394,7 +394,7 @@ void mastermind() {
    my[4] = 0;     /* terminate string */
 
    cls();
-   Serial.println("Guess my 4-digit    number");
+   Serial.println(F("Guess my 4-digit    number"));
    delay(3000);
    do {
      sprintf(buffer,"# %02d: ",count+offcnt*10);
@@ -612,7 +612,7 @@ void c4() {
    printBoard(board);
 
    if(turn == BOARD_ROWS * BOARD_COLS && !done){
-      Serial.println("It's a tie!");
+      Serial.println(F("It's a tie!"));
    } else {
       turn--;
       sprintf(buffer,"%d (%c) wins!", turn % 2 + 1, PIECES[turn % 2]);
@@ -626,12 +626,12 @@ void c4() {
 
 void menue() {
   cls();
-  Serial.println("Menue:");
-  Serial.println("0: Philo");
-  Serial.println("1: Reverse");
-  Serial.println("2: Mastermind");
-  Serial.println("3: Othello");
-  Serial.println("4: Connect 4");
+  Serial.println(F("Menue:"));
+  Serial.println(F("0: Philo"));
+  Serial.println(F("1: Reverse"));
+  Serial.println(F("2: Mastermind"));
+  Serial.println(F("3: Othello"));
+  Serial.println(F("4: Connect 4"));
 }
 
 void loop() {
