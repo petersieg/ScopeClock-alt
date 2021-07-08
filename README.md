@@ -8,6 +8,14 @@ http://dutchtronix.com/ScopeClockH3-1-Enhanced.htm
 
 ---
 
+ScopeClockSource*.zip:
+
+Contains also firmware to invert X display, to allow correct display on some scopes with inverted X.
+See ScopeClock-X.*
+Check ClkRender-X.s
+
+---
+
 Very small pcb changes (allow to solder BNC connector stands at 1,2,3,4): Oclock2008-H31-PS.zip
 
 Has been verified working on 2021-04-27.
